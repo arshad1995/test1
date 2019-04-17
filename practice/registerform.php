@@ -1,41 +1,4 @@
-<?php
-session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "reg";
 
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
- if(isset ($_POST["submit"])){
-	 
-	 $lid=$_POST["lid"];
-	 $pass=$_POST["pass"];
-	 $cpass=$_POST["cpass"];
-	 $name=$_POST["name"];
-	 $address=$_POST["address"];
-	 $city=$_POST["city"];
-	$phone=$_POST["phone"];
-	$email=$_POST["email"];
-	 
- 
-	 $sql= "INSERT INTO users(lid,pass,cpass,name,address,city,phone,email)
-	 VALUES('".$lid=$_POST["lid"]."','".$pass=$_POST["pass"]."','".$cpass=$_POST["cpass"]."','".$name=$_POST["name"]."',
-	 '".$address=$_POST["address"]."','".$city=$_POST["city"]."','".$phone=$_POST["phone"]."','".$email=$_POST["email"]."')";
-	 if(mysqli_query($conn, $sql)){
-    echo "New record created successfully";
-	header("location:login.php");
-	
-  } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-   } 
- } 
- 
-?>
 
 
 <html>
